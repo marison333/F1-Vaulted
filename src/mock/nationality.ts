@@ -110,6 +110,16 @@ const nationality: Nationality[] = [
         code: 'AR',
         name: 'Argentinian',
         iconUrl: `/icons/flags/ar.svg`
+    },
+    {
+        code: 'SA',
+        name: 'Saudi Arabian',
+        iconUrl: `/icons/flags/sa.svg`
+    },
+    {
+        code: 'BH',
+        name: 'Bahraini',
+        iconUrl: `/icons/flags/bh.svg`
     }
 ];
 
