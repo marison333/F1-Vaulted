@@ -10,6 +10,16 @@ export type Driver = {
     url?: string;
 };
 
+export type GrandPrix = {
+    id: string;
+    laps: number;
+    name: string;
+    location: {
+        nationality: Nationality;
+        circuit: string;
+    };
+};
+
 export type Team = {
     carImageUrl?: string;
     iconUrl?: string;
@@ -24,3 +34,15 @@ export type Nationality = {
     name: string;
 };
 
+export type RaceResult = {
+    dateStart: string;
+    dateEnd: string;
+    grandPrix: GrandPrix;
+    positions: {
+        [position: number]: {
+            driver: Driver;
+            team: Team;
+            points: number;
+        };
+    };
+};
