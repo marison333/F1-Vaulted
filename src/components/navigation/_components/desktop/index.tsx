@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Driver, Team } from '@/types';
+import { Driver, GrandPrix, Team } from '@/types';
 
 import DriversList from './_components/drivers-list';
 import { Button } from '@/components/ui/button';
@@ -11,12 +11,14 @@ import {
     NavigationMenuTrigger
 } from '@/components/ui/navigation-menu';
 import TeamsList from './_components/teams-list';
+import RaceEvents from './_components/race-events';
 
 export default async function DesktopNavigation() {
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     const response = {
         drivers: await fetch(`${baseUrl}/api/drivers`),
-        teams: await fetch(`${baseUrl}/api/teams`)
+        teams: await fetch(`${baseUrl}/api/teams`),
+        races: await fetch(`${baseUrl}/api/grand-prix`)
     };
 
     const { data: driversData } = await response.drivers.json();
@@ -26,6 +28,12 @@ export default async function DesktopNavigation() {
 
     const teamsData = await response.teams.json();
     const teams: Team[] = [...teamsData].sort((a, b) => (a.id || '').localeCompare(b.id || ''));
+
+    const { data: racesData } = await response.races.json();
+    const sortedRaces: GrandPrix[] = [...racesData].sort((a, b) =>
+        (a.dateStart || '').localeCompare(b.dateStart || '')
+    );
+    const upcomingRaces = sortedRaces.slice(0, 4);
 
     return (
         <header>
@@ -43,7 +51,7 @@ export default async function DesktopNavigation() {
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Schedule</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    {/* <RaceTimeline /> */}
+                                    <RaceEvents races={upcomingRaces} />
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
