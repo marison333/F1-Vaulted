@@ -11,7 +11,6 @@ import {
     NavigationMenuTrigger
 } from '@/components/ui/navigation-menu';
 import TeamsList from './_components/teams-list';
-// import { RaceTimeline } from './_components/race-timeline';
 
 export default async function DesktopNavigation() {
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
