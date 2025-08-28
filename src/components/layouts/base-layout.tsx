@@ -3,5 +3,9 @@ export default function BaseLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <main className="max-w-[90rem] mx-auto">{children}</main>;
+    return (
+        <main className='sm:w-screen md:max-w-[90rem] mx-auto'>
+            {children}
+        </main>
+    );
 }

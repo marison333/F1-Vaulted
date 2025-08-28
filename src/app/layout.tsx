@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './styles/globals.css';
 
+import { SidebarProvider } from '@/components/ui/sidebar';
+
 import BaseLayout from '@/components/layouts/base-layout';
 import Footer from '@/components/footer';
 import Navigation from '@/components/navigation';
@@ -24,12 +26,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en-nl'>
-            <body className='font-saira flex flex-col justify-between min-h-screen'>
-                <Navigation />
-                <BaseLayout>
-                    <div className='pt-21'>{children}</div>
-                </BaseLayout>
-                <Footer />
+            <body>
+                <SidebarProvider>
+                    <div className='sm:grid sm:grid-cols-[1fr] sm:grid-rows-[auto,1fr,auto] min-h-screen'>
+                        <Navigation />
+                        <BaseLayout>{children}</BaseLayout>
+                        <Footer />
+                    </div>
+                </SidebarProvider>
             </body>
         </html>
     );

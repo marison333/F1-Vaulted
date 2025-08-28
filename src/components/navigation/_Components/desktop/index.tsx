@@ -51,60 +51,6 @@ export default function DesktopNavigation() {
 
     if (loading) {
         return (
-            <header>
-                <div className='sticky top-0 left-0 right-0 z-10 w-full h-20 bg-zinc-900'>
-                    <div className='w-full xl:w-[90rem] mx-auto h-full flex items-center justify-between'>
-                        <NavigationMenu>
-                            <NavigationMenuList className='text-white'>
-                                <NavigationMenuItem
-                                    asChild
-                                    className='hover:cursor-pointer border-none'>
-                                    <Link className='uppercase font-bold text-4xl' href='/'>
-                                        <span>f1 vaulted</span>
-                                    </Link>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Schedule</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavDropdownLayout>
-                                            <span>...loading</span>
-                                        </NavDropdownLayout>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Results</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavDropdownLayout>
-                                            <span>...loading</span>
-                                        </NavDropdownLayout>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Drivers</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavDropdownLayout>
-                                            <span>...loading</span>
-                                        </NavDropdownLayout>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Teams</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <NavDropdownLayout>
-                                            <span>...loading</span>
-                                        </NavDropdownLayout>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu>
-                    </div>
-                </div>
-            </header>
-        );
-    }
-
-    return (
-        <header>
             <div className='sticky top-0 left-0 right-0 z-10 w-full h-20 bg-zinc-900'>
                 <div className='w-full xl:w-[90rem] mx-auto h-full flex items-center justify-between'>
                     <NavigationMenu>
@@ -119,31 +65,79 @@ export default function DesktopNavigation() {
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Schedule</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <RaceEvents races={upcomingRaces} />
+                                    <NavDropdownLayout>
+                                        <span>...loading</span>
+                                    </NavDropdownLayout>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Results</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <ResultsLinks />
+                                    <NavDropdownLayout>
+                                        <span>...loading</span>
+                                    </NavDropdownLayout>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Drivers</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <DriversList drivers={drivers} />
+                                    <NavDropdownLayout>
+                                        <span>...loading</span>
+                                    </NavDropdownLayout>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Teams</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <TeamsList teams={teams} />
+                                    <NavDropdownLayout>
+                                        <span>...loading</span>
+                                    </NavDropdownLayout>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
             </div>
-        </header>
+        );
+    }
+
+    return (
+        <div className='sticky top-0 left-0 right-0 z-10 w-full h-20 bg-zinc-900'>
+            <div className='w-full xl:w-[90rem] mx-auto h-full flex items-center justify-between'>
+                <NavigationMenu>
+                    <NavigationMenuList className='text-white'>
+                        <NavigationMenuItem asChild className='hover:cursor-pointer border-none'>
+                            <Link className='uppercase font-bold text-4xl' href='/'>
+                                <span>f1 vaulted</span>
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Schedule</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <RaceEvents races={upcomingRaces} />
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Results</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <ResultsLinks />
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Drivers</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <DriversList drivers={drivers} />
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Teams</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <TeamsList teams={teams} />
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
+            </div>
+        </div>
     );
 }
