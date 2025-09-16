@@ -219,10 +219,10 @@ const teams: Team[] = [
             'https://media.formula1.com/image/upload/c_fit,h_64/q_auto/v1740000000/common/f1/2025/williams/2025williamslogowhite.webp',
         drivers: {
             first: {
-                familyName: 'Sainz',
-                givenName: 'Carlos',
+                familyName: 'Albon',
+                givenName: 'Alexander',
                 mugshotUrl:
-                    'https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriverright.webp/v1740000000/common/f1/2025/williams/carsai01/2025williamscarsai01right.webp'
+                    'https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriverright.webp/v1740000000/common/f1/2025/williams/alealb01/2025williamsalealb01right.webp'
             },
             second: {
                 familyName: 'Sainz',
