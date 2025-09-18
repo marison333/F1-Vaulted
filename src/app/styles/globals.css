@@ -45,15 +45,25 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* f1 team colors */
+  --color-alpine-dark: #005184;
   --color-alpine: #009ee4;
+  --color-aston-martin-dark: #004a2e;
   --color-aston-martin: #22976e;
+  --color-ferrari-dark: #740008;
   --color-ferrari: #ce3035;
+  --color-haas-dark: #4f5355;
   --color-haas: #9b9da0;
+  --color-kick-sauber-dark: #006602;
   --color-kick-sauber: #00bc0d;
+  --color-mclaren-dark: #893700;
   --color-mclaren: #f17602;
+  --color-mercedes-dark: #007862;
   --color-mercedes: #00d5b5;
+  --color-racing-bulls-dark: #2648ae;
   --color-racing-bulls: #447ed4;
+  --color-red-bull-dark: #2648ae;
   --color-red-bull: #447ed4;
+  --color-williams-dark: #020884;
   --color-williams: #1963d9;
 }
 

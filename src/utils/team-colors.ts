@@ -51,10 +51,37 @@ export const getTeamGradientClass = (teamId: string) => {
             return 'from-gray-500';
     }
 };
+export const getTeamGradientDarkClass = (teamId: string) => {
+    switch (teamId) {
+        case 'alpine':
+            return 'to-alpine-dark';
+        case 'aston-martin':
+            return 'to-aston-martin-dark';
+        case 'ferrari':
+            return 'to-ferrari-dark';
+        case 'haas':
+            return 'to-haas-dark';
+        case 'kick-sauber':
+            return 'to-kick-sauber-dark';
+        case 'mclaren':
+            return 'to-mclaren-dark';
+        case 'mercedes':
+            return 'to-mercedes-dark';
+        case 'racing-bulls':
+            return 'to-racing-bulls-dark';
+        case 'red-bull':
+            return 'to-red-bull-dark';
+        case 'williams':
+            return 'to-williams-dark';
+        default:
+            return 'to-stone-800';
+    }
+};
 
 const DEFAULT_VAR = '--gray-500';
 const DEFAULT_BG = 'bg-gray-500';
 const DEFAULT_FROM = 'from-gray-500';
+const DEFAULT_TO = 'to-stone-800';
 
 export const teamBackgroundColor = (teamId: string): string => {
     const cssVar = getTeamVariable(teamId);
@@ -64,4 +91,9 @@ export const teamBackgroundColor = (teamId: string): string => {
 export const teamGradientColor = (teamId: string): string => {
     const cssVar = getTeamGradientClass(teamId);
     return cssVar === DEFAULT_FROM ? DEFAULT_FROM : cssVar;
+};
+
+export const darkTeamGradientColor = (teamId: string): string => {
+    const cssVar = getTeamGradientDarkClass(teamId);
+    return cssVar === DEFAULT_TO ? DEFAULT_TO : cssVar;
 };
