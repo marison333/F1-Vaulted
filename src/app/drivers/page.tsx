@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Drivers from '@/components/drivers';
+import Drivers from '@/components/drivers/overview';
 
 export const metadata: Metadata = {
     title: 'Drivers 2025',

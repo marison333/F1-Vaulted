@@ -1,5 +1,5 @@
 import { getDrivers } from '@/lib/data/drivers';
-import DriversPageLayout from '../layouts/drivers-page-layout';
+import DriversPageLayout from '../../layouts/drivers-page-layout';
 
 import { Overview } from './_components/overview';
 import { TeamsBanner } from './_components/banner';
