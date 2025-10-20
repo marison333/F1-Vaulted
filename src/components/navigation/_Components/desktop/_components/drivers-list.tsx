@@ -2,22 +2,28 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { teamBackgroundColor, getTeamVariable } from '@/utils/team-colors';
+
+import { getTeamBackgroundColorDark } from '@/utils/team-colors';
 
 import { Button } from '@/components/ui/button';
 import { Driver } from '@/types';
 import { Separator } from '@/components/ui/separator';
 import NavDropdownLayout from '@/components/layouts/nav-dropdown-layout';
 
-type DriverListProps = {
+interface DriverListProps {
     drivers: Driver[];
-};
+}
 
-interface driverBadgeProps {
+interface DriverBadgeProps {
     driver: Driver;
 }
 
-const DriverButtonItems = [
+interface DriverButtonItem {
+    name: string;
+    url: string;
+}
+
+const DriverButtonItems: DriverButtonItem[] = [
     {
         name: 'all drivers',
         url: '/drivers'
@@ -28,37 +34,36 @@ const DriverButtonItems = [
     }
 ];
 
-const DriverBadge = ({ driver }: driverBadgeProps) => {
-    const teamVar = teamBackgroundColor(driver.team.id);
+const DriverBadge = ({ driver }: DriverBadgeProps) => {
+    const backgroundColor: string = getTeamBackgroundColorDark(driver.team.id);
 
     return (
         <>
-            <Button asChild data-slot='driver-badge' size='lg' variant='ghost'>
+            <Button
+                asChild
+                className='group rounded-[0.2rem]'
+                data-slot='driver-badge'
+                size='lg'
+                variant='ghost'>
                 <Link
-                    className='flex items-center justify-start w-full text-left transition-colors duration-200'
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = `rgb(var(${getTeamVariable(driver.team.id)}) / 0.2)`;
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '';
-                    }}
+                    className={`flex items-center justify-start w-full text-left`}
                     href={`/drivers/${driver.givenName}-${driver.familyName}`}>
                     <div className='flex justify-center gap-1'>
                         <span
-                            className={`rounded-full overflow-hidden size-7 shadow-md ${teamBackgroundColor(driver.team.id)}`}>
+                            className={`rounded-full overflow-hidden size-7 shadow-md ${backgroundColor}`}>
                             <Image
-                                alt={`${driver.givenName} ${driver.familyName}`}
+                                alt={`2025 picture of ${driver.givenName} ${driver.familyName}`}
                                 className='object-top'
                                 height={250}
-                                loading='lazy'
+                                loading='eager'
+                                priority={true}
                                 quality={25}
                                 src={driver.mugshotUrl}
                                 width={100}
                             />
                         </span>
-                        <span className='flex gap-1 text-xl text-white'>
-                            <span className='capitalize'>{driver.givenName}</span>
-                            <span className='uppercase font-extrabold'>{driver.familyName}</span>
+                        <span className='flex gap-1 text-xl text-white group-hover:underline'>
+                            {driver.givenName} {driver.familyName}
                         </span>
                     </div>
                     <span className='sr-only'>{`${driver.givenName} ${driver.familyName}`}</span>
